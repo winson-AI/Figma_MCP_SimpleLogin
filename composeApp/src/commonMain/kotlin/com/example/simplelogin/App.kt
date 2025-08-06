@@ -4,12 +4,29 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -17,18 +34,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
-
 import simplelogin.composeapp.generated.resources.Res
+import simplelogin.composeapp.generated.resources.battery_icon
+import simplelogin.composeapp.generated.resources.cellular_icon
+import simplelogin.composeapp.generated.resources.wifi_icon
 import simplelogin.composeapp.generated.resources.apple_icon
 import simplelogin.composeapp.generated.resources.google_icon
 import simplelogin.composeapp.generated.resources.facebook_icon
-import simplelogin.composeapp.generated.resources.cellular_icon
-import simplelogin.composeapp.generated.resources.wifi_icon
-import simplelogin.composeapp.generated.resources.battery_icon
 
 // Design colors from Figma
 val DarkBlack = Color(0xFF332218)
@@ -57,7 +74,7 @@ fun SignUpScreen() {
             .padding(horizontal = 32.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Status Bar Placeholder
+        // Status Bar
         StatusBar()
         
         Spacer(modifier = Modifier.height(76.dp))
@@ -69,7 +86,8 @@ fun SignUpScreen() {
             fontWeight = FontWeight.Bold,
             color = Color.Black,
             lineHeight = 48.sp,
-            modifier = Modifier.align(Alignment.Start)
+            textAlign = TextAlign.Start,
+            modifier = Modifier.fillMaxWidth()
         )
         
         Spacer(modifier = Modifier.height(115.dp))
@@ -157,6 +175,7 @@ fun SignUpScreen() {
                 text = "Log In",
                 fontSize = 14.sp,
                 color = Color.Black,
+                fontWeight = FontWeight.Medium,
                 modifier = Modifier.clickable { /* Handle login */ }
             )
         }
@@ -260,15 +279,15 @@ fun SocialMediaButtons() {
         horizontalArrangement = Arrangement.spacedBy(20.dp)
     ) {
         SocialButton(
-            icon = Res.drawable.battery_icon,
+            icon = Res.drawable.apple_icon,
             onClick = { /* Handle Apple login */ }
         )
         SocialButton(
-            icon = Res.drawable.battery_icon,
+            icon = Res.drawable.google_icon,
             onClick = { /* Handle Google login */ }
         )
         SocialButton(
-            icon = Res.drawable.battery_icon,
+            icon = Res.drawable.facebook_icon,
             onClick = { /* Handle Facebook login */ }
         )
     }
