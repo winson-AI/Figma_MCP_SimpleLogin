@@ -24,7 +24,7 @@ This project uses **Kotlin Multiplatform** with **Compose Multiplatform** for sh
 ### Project Structure
 
 ```
-├── composeApp/                    # Shared Kotlin Multiplatform code
+├── composeApp/                    # Shared Kotlin Multiplatform
 │   └── src/
 │       ├── commonMain/           # Shared code for all platforms
 │       │   ├── kotlin/          # Main application logic
